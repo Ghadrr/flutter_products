@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_application_1/services/request_http.dart';
+import 'package:flutter_application_1/views/detail_product.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -36,10 +35,13 @@ class _HomePageState extends State<HomePage> {
                         elevation: 10,
                         color: Colors.amber,
                         child: Column(
-                          children: [
+                          children: [ElevatedButton(onPressed: (){
+                            Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => DetailProduct()));
+                          }, child: null,),
                             Image.network(
-                                "${snapshot.data[index]['images']}",
-                                width: 100,
+                                "${snapshot.data[index]['images'][0]}",
+                                width: 300,
                                 height: 100,
                                 fit: BoxFit.cover),
                             SizedBox(
