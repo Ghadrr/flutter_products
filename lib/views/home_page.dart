@@ -35,10 +35,23 @@ class _HomePageState extends State<HomePage> {
                         elevation: 10,
                         color: Colors.amber,
                         child: Column(
-                          children: [ElevatedButton(onPressed: (){
-                            Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => DetailProduct()));
-                          }, child: null,),
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DetailProduct(title: snapshot.data[index]['title'], 
+                                        image: snapshot.data[index]['images'][0], 
+                                        price: 'Preço: R\$${snapshot.data[index]['price']}',
+                                        stock: 'Estoque: ${ snapshot.data[index]['stock']}',
+                                        descricao: 'Descrição: ${ snapshot.data[index]['description']}'
+                                        
+                                        
+                                        )));
+                              },
+                              child: null,
+                            ),
                             Image.network(
                                 "${snapshot.data[index]['images'][0]}",
                                 width: 300,
