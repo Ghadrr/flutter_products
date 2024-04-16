@@ -28,14 +28,47 @@ class _DetailProductState extends State<DetailProduct> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(children: [
-          Image.network(widget.image),
-          Text(widget.title),
-          Text(widget.price),
-          Text(widget.stock),
-          Text(widget.descricao),
-        ]),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Center(
+              child: Column(children: [
+                AspectRatio(
+                  aspectRatio: 16 / 9,
+                  child: Image.network(
+                    widget.image,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                SizedBox(height: 16),
+                Text(
+                  widget.title,
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  widget.price,
+                  style: TextStyle(fontSize: 18, color: Colors.green),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  widget.stock,
+                  style: TextStyle(fontSize: 18, color: Colors.blue),),
+                SizedBox(height: 16),
+                Text("Descrição",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)
+                ),
+                SizedBox(height: 8),
+                Text(widget.descricao,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)
+                ),
+              ]),
+            ),
+          ],
+        ),
       ),
     );
   }
